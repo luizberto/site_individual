@@ -115,7 +115,7 @@ color: #fff;
 	}
 
 	/*corpo do site*/
-	#section-1{background: rgba(0, 0, 0, 0.5) url(../img/imgs/pexels-anderson-guerra-1154198.jpg) no-repeat;
+	#section-1{background: rgba(0, 0, 0, 0.5) url(../img/imgs/cauculadora.jpg) no-repeat;
 	background-size: cover; background-blend-mode: darken;}
 	#section-2{
 		background: rgba(0, 0, 0, 0.5) url(../img/imgs/marielle.jpg) no-repeat;
@@ -213,6 +213,82 @@ color: #fff;
                     opacity: 1;
                 }
             }
-            
-        
+			
+			
+			.calculadora{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.box{
+				display: grid;
+
+				
+			}
+
+			.box1{
+				display: grid;
+
+			}
+
+.button{
+	width: 73px;
+    height: 69px;
+    border: none;
+    border-radius: 20px;
+    border-style: dashed;
+    border-color: tomato;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+	}
+
+	.button:hover{
+		background-color: red;
+		color: black;
+		transition: 500ms;
+	}
+
+
+.calculadora select{
+	border: none;
+    height: 32px;
+    width: 201px;
+    margin-right: 12px;
+    margin-left: 13px;
+    margin-top: 13px;
+    border-radius: 20%;
+    border-style: dashed;
+    border-color: tomato;
+    background-color: black;
+	color: currentcolor;
+	cursor: pointer;
+
+}
+
+.calculadora select:hover{
+	background-color: red;
+	color: black;
+	transition: 500ms;
+}
+
+.calculadora input{
+	margin-top: 10px;
+    width: 191px;
+    height: 22px;
+    margin-left: 12px;
+    border: none;
+    border-radius: 9px;
+    border-style: dashed;
+    border-color: tomato;
+    background-color: black;
+    color: white;
+}
+
+ #resultado{
+	 text-align: center;
+	 font-size: 15px;
+	 font-weight: 800;
+ }    
         
