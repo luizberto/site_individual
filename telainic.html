@@ -14,7 +14,7 @@
 		<input type="radio" name="radio" checked="checked" id="radio-nav-1" />
 		<span>CAUCULADORA</span>
 		<input type="radio" name="radio" id="radio-nav-2" />
-        <span>PERSONALIZAÇÃO</span>
+        <span>APRESENTAÇÃO</span>
    
 
     <div class="scroll">
@@ -91,24 +91,36 @@
                 </nav>
             </div>
 
-            <div class="thg">
-                <nav class="marca">
-                    
-                </nav>
-            </div>
+           
             </header>
 
             <div class="logo">
                 <span>THE GRAFITT HOUSE</span>
             </div>
+
+            <h3>CONHEÇA E ENTENDA DA CULTURA ATRAVÉS DE ALGUNS DESENHOS, SE INSPIRE E MUDE VIDAS.</h3>
+
+            <div id="dvslider"></div>
+
+            
           
-        </section>
+        </section> 
+    </div>
     </div>  
    </div>
 </body>
 </html>
 
 <script>
+
+    var imgs = [];
+    var slider;
+    var imgAtual;
+    var maxImg;
+    var tmp;
+    var tempoTroca;
+
+
     function verificar(){
             var lata = marca.value;
             var color = cor.value;
@@ -123,5 +135,41 @@
             }
            
     }
+
+    function preCarregamento(){
+        var s = 1;
+
+        for (var i = 0; i<6; i++){
+            imgs[i]= new Image();
+            imgs[i].src = "slides/s"+s+".jpg";
+            s++;
+        }
+    }
+
+    function carregarImg(img){
+        slider.style.backgroundImage = "url('"+imgs[img].src+"')";
+    }
+
+    function inicia(){
+        preCarregamento();
+        imgAtual = 0;
+        maxImg = imgs.length-1;
+        slider= document.getElementById("dvslider");
+        carregarImg(imgAtual);
+        tempoTroca = 3000;
+        tmp = setInterval(troca, tempoTroca);
+
+    }
+
+    function troca(){
+        imgAtual++;
+        if(imgAtual>maxImg){
+            imgAtual = 0;
+        }
+        carregarImg(imgAtual);
+    }
+
+    window.addEventListener("load", inicia);
+
 
 </script>
