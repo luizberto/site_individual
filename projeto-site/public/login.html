@@ -41,16 +41,25 @@
  <form id="form_login" method="post" onsubmit="return entrar()">
 
         <div class="camposLogin">
+            <label for="email">EMAIL</label>
             <input type="text" class="bot" type="email" name="email"> <br> <br>
-            <input type="text" class="bot" type="password" name="senha"> <br> <br>
+
+            <label for="senha">SENHA</label>
+            <input type="password" class="bot" name="senha"> <br> <br>
 
             <div class="botoes">
-                <input type="submit" id="btn_entrar" name="confirmar" value="entrar">
-              <a href="cadastro.html">  <input type="submit" id="btn_cadastrar" name="confirmar" value="entrar"> </a> 
+                <input type="submit" class="btn" id="btn_entrar" name="confirmar" value="ENTRAR">
+             
             </div>
         </div>
 
  </form>
+
+ <div class="botoes1">
+ <a href="cadastro.html">
+              <button class="btn" name="cadastrar">CADASTRAR</button>
+            </a> </div>
+
 
  <div class="extra">
     <div id="div_erro" class="msg_erro">

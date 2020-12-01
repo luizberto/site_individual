@@ -127,8 +127,9 @@ body{
 		border: none;
 		align-self: center;
         border-radius: 10px;
-        height: 25px;
-        background-image: linear-gradient(to right, rgb(238, 238, 238),rgb(240, 89, 89));
+		height: 25px;
+		text-align: center;
+		font-size: 18px;
 		
 		
 	}
@@ -140,7 +141,7 @@ body{
 		display: table;
 	}
 
-	#confirme{
+	.confirme{
 		border: none;
 		color: rgb(236, 5, 5);
 		background-color: black;
@@ -154,7 +155,7 @@ body{
 		cursor: pointer;
 	}
 
-	#confirme:hover{
+      .confirme:hover{
 		color: black;
 		background-color: red;
 		transition: all 400ms ease;

@@ -116,23 +116,35 @@ color: rgb(14, 11, 11);
         border-radius: 10px;
         height: 25px;
         background-image: linear-gradient(to right, rgb(238, 238, 238),rgb(240, 89, 89));
+        text-align: center;
+        font-size: 18px;
+    }
     }
     
     .botoes{
         width: 100%;
     }
 
+    .botoes1{
+        margin: -39px
+    }
+
+    .botoes1 .btn{
+        background-color: transparent;
+    }
+
     .txt{
         padding: 13px 3px 7px 8px;
     }
-    #btn_entrar .txt{
+    .btn{
         border: none;
         text-decoration: none;
         background-color: rgb(201, 7, 7);;
         color: cornsilk;
+        height: 38px
     }
 
-    #btn_entrar .txt:hover{
+    .btn:hover{
         background-color: black;
         border-radius: 20px;
         transition: 700ms;
