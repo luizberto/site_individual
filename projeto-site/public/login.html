@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="HTML e CSS Pro" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="css/loginstyle.css" />
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+    <section class="section-1" id="section-1">
+
+        <header class="menu">
+            <div class="sociais">
+            <nav class="face">
+                <img src="./img/face 2.png" width="63px">
+            </nav>
+            <nav class="insta">
+                <img src="./img/imgs/insta2.png" width="63px">
+            </nav>
+         
+        </div>   
+        <nav class="home">
+               <a href="index.html"><h3>HOME</h3></a> 
+            </nav>
+        </header>
+
+        <div class="logo">
+            <span>THE GRAFITT HOUSE</span>
+        </div>
+
+       
+
+        <div class="atributos">
+
+ <h2>ENTRE NO SITE GRAFITEIRO</h2>
+
+ <form id="form_login" method="post" onsubmit="return entrar()">
+
+        <div class="camposLogin">
+            <input type="text" class="bot" type="email" name="email"> <br> <br>
+            <input type="text" class="bot" type="password" name="senha"> <br> <br>
+
+            <div class="botoes">
+                <input type="submit" id="btn_entrar" name="confirmar" value="entrar">
+              <a href="cadastro.html">  <input type="submit" id="btn_cadastrar" name="confirmar" value="entrar"> </a> 
+            </div>
+        </div>
+
+ </form>
+
+ <div class="extra">
+    <div id="div_erro" class="msg_erro">
+    </div>
+
+  
+
+
+       </div>
+
+    </section>
+</div>
+</body>
+</html>
+
+
+<script>
+     function entrar() {
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "post",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'telainic.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+    }
+</script>

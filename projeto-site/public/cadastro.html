@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="HTML e CSS Pro" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>cadastro</title>
+</head>
+<body>
+
+    <div class="container">
+        <section class="section" id="section">
+
+            <header class="menu">
+                <div class="sociais">
+                <nav class="face">
+                    <img src="./img/face 2.png" width="63px">
+                </nav>
+                <nav class="insta">
+                    <img src="./img/imgs/insta2.png" width="63px">
+                </nav>
+            </div>
+
+            <nav class="home">
+                <a href="index.html"><h3>HOME</h3></a> 
+             </nav>
+            </header>
+    
+            <div class="logo">
+                <span>THE GRAFITT HOUSE</span>
+            </div>
+
+<h1>Cadastre-se</h1>
+
+  <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+
+<div class="superbox">
+<div class="box">
+    <label for="nome">NOME:</label> <input id="nome" name="nome" required>
+</div>
+
+<div class="box">
+    <label for="email">EMAIL:</label> <input id="email" type="email" name="email" required>
+    <label for="vulgo">ESCOLHA UM NICK:</label> <input id="vulgo" name="nick" required> <br>
+</div>
+
+<div class="box">
+    <label for="senha">DIGITE A SENHA:</label> <input id="senha" type="password" name="senha" required>
+</div>
+    <input type="submit" id="confirme" name="confirmar" value="confirmar cadastro">
+
+    
+   <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+       Erro no cadastro
+   </div>
+
+</div>
+
+   </form>
+
+    </section>
+    
+
+</div>
+
+
+</body>
+</html>
+
+<script>
+     function cadastrar() {
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "post",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='login.html';
+
+            } else {
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function finalizar_aguardar() {
+        confirme.disabled = false;
+        div_erro.style.display='block';
+    }
+</script>
